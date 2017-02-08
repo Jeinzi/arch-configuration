@@ -1,0 +1,15 @@
+# Ignore everyting
+*
+
+# Then, whitelist
+!.gitignore
+!/
+!/Bilder
+!/Bilder/Wallpaper
+!/Bilder/Wallpaper/forest.jpg
+!/.config
+!/.config/i3/
+!/.config/i3/*
+!/.config/xfce4
+!/.config/xfce4/terminal
+!/.config/xfce4/terminal/terminalrc
