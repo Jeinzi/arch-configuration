@@ -196,5 +196,5 @@ bar {
 	}
 }
 
-exec_always feh --bg-scale ~/Bilder/Wallpaper/forest.jpg
+exec_always feh --bg-scale ~/Bilder/Wallpaper/stars.jpg
 exec_always compton
