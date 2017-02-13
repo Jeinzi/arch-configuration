@@ -1,0 +1,6 @@
+Interesing filters:
+  edge detect
+  dilation/erosion
+  posterize
+  gaussian blur
+  shape adaptive blur
