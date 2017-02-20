@@ -3,6 +3,7 @@
 
 # Then, whitelist
 !.gitignore
+!.gitattributes
 !/
 !/Bilder
 !/Bilder/Wallpaper
