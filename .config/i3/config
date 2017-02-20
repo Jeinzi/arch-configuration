@@ -45,14 +45,8 @@ bindsym $mod+Shift+q kill
 # lock screen
 bindsym $mod+x exec ~/.config/i3/lock.sh
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
+# start rofi (program launcher)
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -bw 0 -separator-style solid -font "Sans 18" -no-cycle
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -99,10 +93,10 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+a focus child
 
 # define workspaces
 set $workspace1 "1: Terminal"
@@ -196,5 +190,7 @@ bar {
 	}
 }
 
-exec_always feh --bg-scale ~/Bilder/Wallpaper/stars.jpg
-exec_always compton
+exec_always --no-startup-id feh --bg-scale ~/Bilder/Wallpaper/stars.jpg
+exec_always --no-startup-id compton
+exec --no-startup-id dropbox
+exec --no-startup-id nm-applet
