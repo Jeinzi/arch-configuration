@@ -31,6 +31,9 @@ sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
 sudo chsh -s /bin/zsh ${user}
 
+# Enable service to change screen brightness. 
+sudo systemctl enable illum.service & sudo systemctl start illum.service
+
 # Merge git repo into existing file structure
 cd ~
 git clone https://github.com/Jeinzi/dotfiles.git
