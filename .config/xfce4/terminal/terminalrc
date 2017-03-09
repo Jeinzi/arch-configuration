@@ -24,7 +24,8 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-FontName=Monospace 9
-BackgroundMode=TERMINAL_BACKGROUND_IMAGE
+FontName=DejaVu Sans Mono 9
 BackgroundImageShading=0,600000
+BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_CENTERED
+BackgroundMode=TERMINAL_BACKGROUND_IMAGE
 
