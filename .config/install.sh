@@ -1,3 +1,6 @@
+# Variables
+user=jeinzi
+
 # Go to install directory
 cd ~
 mkdir -p Downloads
@@ -21,19 +24,16 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt i3blocks
-yaourt moka-icon-theme
-yaourt thefuck
-yaourt spotify proprietary
-yaourt staruml
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
+sudo chsh -s /bin/zsh ${user}
+
 cd ~
 git clone https://github.com/Jeinzi/dotfiles.git
 # ToDo: Clone directly into home
-# ToDo: Configure zsh
 
 # Firefox theme
 cd ~/Downloads/install
