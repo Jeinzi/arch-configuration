@@ -31,9 +31,13 @@ sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
 sudo chsh -s /bin/zsh ${user}
 
+# Merge git repo into existing file structure
 cd ~
 git clone https://github.com/Jeinzi/dotfiles.git
-# ToDo: Clone directly into home
+shopt -s dotglob nullglob
+sudo cp -r dotfiles/* .
+shopt -u dotglob nullglob
+rm -rf dotfiles
 
 # Firefox theme
 cd ~/Downloads/install
