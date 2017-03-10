@@ -49,6 +49,9 @@ cd arc-firefox-theme
 ./autogen.sh --prefix=/usr --disable-light --disable-dark
 sudo make install
 
+# Add custom i3blocks
+sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
+
 # Remove install directory
 cd ~/Downloads
 rm -r install

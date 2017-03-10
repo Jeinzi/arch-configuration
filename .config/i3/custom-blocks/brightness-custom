@@ -1,0 +1,11 @@
+# Get brightness
+maxBrightness=$(cat /sys/class/backlight/intel_backlight/max_brightness)
+brightness=$(cat /sys/class/backlight/intel_backlight/brightness)
+
+echo ${brightness}
+
+# Calculate percentage
+let percentage=brightness*100/maxBrightness
+
+# Output
+echo ${percentage}%

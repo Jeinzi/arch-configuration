@@ -1,1 +1,2 @@
 .config/i3/i3blocks.conf merge=ours
+.config/i3/custom-blocks/brightness-custom merge=ours
