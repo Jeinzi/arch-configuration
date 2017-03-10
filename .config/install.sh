@@ -24,7 +24,7 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git --noconfirm
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
