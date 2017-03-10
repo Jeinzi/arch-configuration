@@ -51,7 +51,7 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+b exec google-chrome-stable
-bindsym Print exec shutter
+bindsym Print exec shutter -s
 
 # Lock screen
 bindsym $mod+x exec ~/.config/i3/lock.sh
