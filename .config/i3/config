@@ -208,4 +208,3 @@ bar {
 exec_always --no-startup-id feh --bg-scale ~/Bilder/Wallpaper/stars.jpg
 exec_always --no-startup-id compton
 exec --no-startup-id dropbox
-exec --no-startup-id nm-applet
