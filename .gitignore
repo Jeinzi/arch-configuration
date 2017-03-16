@@ -20,3 +20,5 @@
 !/.config/xfce4/terminal/terminalrc
 !/.config/i3/custom-blocks
 !/.config/i3/custom-blocks/*
+!/.ssh
+!/.ssh/config
