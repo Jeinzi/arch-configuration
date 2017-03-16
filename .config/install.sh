@@ -31,9 +31,6 @@ sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
 sudo chsh -s /bin/zsh ${user}
 
-# Enable service to change screen brightness
-sudo systemctl enable illum.service & sudo systemctl start illum.service
-
 # Give arduino IDE permission to use serial port
 usermod -a -G uucp jeinzi
 
@@ -51,9 +48,6 @@ git clone https://github.com/horst3180/arc-firefox-theme
 cd arc-firefox-theme
 ./autogen.sh --prefix=/usr --disable-light --disable-dark
 sudo make install
-
-# Add custom i3blocks
-sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 
 # Remove install directory
 cd ~/Downloads
