@@ -55,6 +55,11 @@ sudo make install
 # Add custom i3blocks
 sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 
+# Install fonts
+cd ~/Downloads/install
+git clone https://github.com/FortAwesome/Font-Awesome.git
+cp Font-Awesome/fonts/fontawesome-webfont.ttf ~/.fonts 
+
 # Remove install directory
 cd ~/Downloads
 rm -r install
