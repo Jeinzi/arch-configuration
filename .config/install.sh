@@ -24,15 +24,18 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl --noconfirm
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl --noconfirm arduino
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
 sudo chsh -s /bin/zsh ${user}
 
-# Enable service to change screen brightness. 
+# Enable service to change screen brightness
 sudo systemctl enable illum.service & sudo systemctl start illum.service
+
+# Give arduino IDE permission to use serial port
+usermod -a -G uucp jeinzi
 
 # Merge git repo into existing file structure
 cd ~
