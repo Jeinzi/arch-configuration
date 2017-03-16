@@ -24,7 +24,7 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme thefuck spotify staruml playerctl arduino eagle --noconfirm
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml playerctl arduino eagle shutter --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
