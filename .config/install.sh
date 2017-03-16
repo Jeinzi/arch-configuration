@@ -1,3 +1,6 @@
+# Variables
+user=jeinzi
+
 # Go to install directory
 cd ~
 mkdir -p Downloads
@@ -21,19 +24,26 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt i3blocks
-yaourt moka-icon-theme
-yaourt thefuck
-yaourt spotify proprietary
-yaourt staruml
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml playerctl arduino eagle --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
 sudo echo eval $(thefuck --alias) >> ~/.bashrc
+sudo chsh -s /bin/zsh ${user}
+
+# Enable service to change screen brightness
+sudo systemctl enable illum.service & sudo systemctl start illum.service
+
+# Give arduino IDE permission to use serial port
+usermod -a -G uucp jeinzi
+
+# Merge git repo into existing file structure
 cd ~
 git clone https://github.com/Jeinzi/dotfiles.git
-# ToDo: Clone directly into home
-# ToDo: Configure zsh
+shopt -s dotglob nullglob
+sudo cp -r dotfiles/* .
+shopt -u dotglob nullglob
+rm -rf dotfiles
 
 # Firefox theme
 cd ~/Downloads/install
@@ -41,6 +51,9 @@ git clone https://github.com/horst3180/arc-firefox-theme
 cd arc-firefox-theme
 ./autogen.sh --prefix=/usr --disable-light --disable-dark
 sudo make install
+
+# Add custom i3blocks
+sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 
 # Remove install directory
 cd ~/Downloads
