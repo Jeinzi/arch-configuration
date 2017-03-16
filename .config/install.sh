@@ -49,6 +49,11 @@ cd arc-firefox-theme
 ./autogen.sh --prefix=/usr --disable-light --disable-dark
 sudo make install
 
+# Install fonts
+cd ~/Downloads/install
+git clone https://github.com/FortAwesome/Font-Awesome.git
+cp Font-Awesome/fonts/fontawesome-webfont.ttf ~/.fonts 
+
 # Remove install directory
 cd ~/Downloads
 rm -r install
