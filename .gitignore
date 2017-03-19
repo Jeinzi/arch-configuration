@@ -6,9 +6,9 @@
 !.gitattributes
 !/
 !/Bilder
-!/Bilder/Wallpaper
-!/Bilder/Wallpaper/forest.jpg
-!/Bilder/Wallpaper/stars.jpg
+!/Bilder/Verschiedenes
+!/Bilder/Verschiedenes/Wallpaper
+!/Bilder/Verschiedenes/Wallpaper/standard.jpg
 !/.config
 !/.config/install.sh
 !/.config/i3/
