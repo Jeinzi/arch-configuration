@@ -205,6 +205,6 @@ bar {
 }
 
 # Start programs
-exec_always --no-startup-id feh --bg-scale ~/Bilder/Wallpaper/stars.jpg
 exec_always --no-startup-id compton
+exec --no-startup-id ~/.config/i3/wallpaperScript.sh
 exec --no-startup-id dropbox
