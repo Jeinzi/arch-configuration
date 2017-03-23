@@ -54,6 +54,7 @@ sudo make install
 
 # Add custom i3blocks
 sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
+sudo cp ~/.config/i3/custom-blocks/battery-custom /usr/lib/i3blocks/battery
 
 # Install fonts
 cd ~/Downloads/install
