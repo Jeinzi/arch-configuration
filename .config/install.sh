@@ -35,7 +35,7 @@ sudo chsh -s /bin/zsh ${user}
 sudo systemctl enable illum.service & sudo systemctl start illum.service
 
 # Give arduino IDE permission to use serial port
-usermod -a -G uucp jeinzi
+usermod -a -G uucp ${user}
 
 # Merge git repo into existing file structure
 cd ~
@@ -55,6 +55,7 @@ sudo make install
 # Add custom i3blocks
 sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 sudo cp ~/.config/i3/custom-blocks/battery-custom /usr/lib/i3blocks/battery
+sudo cp ~/.config/i3/custom-blocks/volume-custom /usr/lib/i3blocks/volume
 
 # Install fonts
 cd ~/Downloads/install
