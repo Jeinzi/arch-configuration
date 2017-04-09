@@ -8,7 +8,8 @@ cd Downloads
 mkdir -p install
 
 # Installation
-sudo pacman -S i3 xfce4-terminal git zsh compton lxappearance sshfs firefox rofi thunderbird thunar veracrypt inkscape feh gimp texlive-most texmaker arc-gtk-theme alsa-utils nm-applet gst-libav mplayer
+sudo pacman -S base base-devel
+sudo pacman -S i3 xfce4-terminal git zsh compton lxappearance sshfs firefox rofi thunderbird thunar inkscape feh gimp texlive-most texmaker arc-gtk-theme alsa-utils network-manager-applet gst-libav mplayer --noconfirm
 
 # Install yaourt
 curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
@@ -24,7 +25,8 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl arduino eagle shutter dropbox tumbler ffmpegthumbnailer --noconfirm
+yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl arduino eagle shutter dropbox tumbler ffmpegthumbnailer 
+veracrypt --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
@@ -64,7 +66,7 @@ cp Font-Awesome/fonts/fontawesome-webfont.ttf ~/.fonts
 
 # Remove install directory
 cd ~/Downloads
-rm -r install
+rm -rf install
 
 # Start desktop environment if neccessary
 if ! xset q &>/dev/null; then
