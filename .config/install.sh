@@ -8,8 +8,11 @@ cd Downloads
 mkdir -p install
 
 # Installation
-sudo pacman -S base base-devel
-sudo pacman -S i3 xfce4-terminal git zsh compton lxappearance sshfs firefox rofi thunderbird thunar inkscape feh gimp texlive-most texmaker arc-gtk-theme alsa-utils network-manager-applet gst-libav mplayer --noconfirm
+sudo pacman -S base base-devel --noconfirm
+sudo pacman -S git sshfs --noconfirm
+sudo pacman -S i3 xfce4-terminal zsh compton lxappearance rofi feh --noconfirm
+sudo pacman -S arc-gtk-theme alsa-utils network-manager-applet gst-libav --noconfirm
+sudo pacman -S firefox thunderbird thunar inkscape gimp texlive-most texmaker mplayer --noconfirm
 
 # Install yaourt
 curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
@@ -25,8 +28,9 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme thefuck spotify staruml illum-git playerctl arduino eagle shutter dropbox tumbler ffmpegthumbnailer 
-veracrypt --noconfirm
+yaourt -S i3blocks moka-icon-theme --noconfirm
+yaourt -S thefuck illum-git playerctl shutter tumbler ffmpegthumbnailer --noconfirm
+yaourt -S spotify staruml arduino eagle dropbox veracrypt --noconfirm
 
 # Configuration
 sudo echo exec i3 > ~/.xinitrc
