@@ -10,7 +10,7 @@ mkdir -p install
 # Installation
 sudo pacman -S base base-devel --noconfirm
 sudo pacman -S git sshfs --noconfirm
-sudo pacman -S i3 xfce4-terminal zsh compton lxappearance rofi feh --noconfirm
+sudo pacman -S i3 xfce4-terminal compton lxappearance rofi feh --noconfirm
 sudo pacman -S arc-gtk-theme alsa-utils network-manager-applet gst-libav --noconfirm
 sudo pacman -S firefox thunderbird thunar inkscape gimp texlive-most texmaker mplayer --noconfirm
 
@@ -28,7 +28,7 @@ makepkg -si
 cd ..
 
 # AUR installations
-yaourt -S i3blocks moka-icon-theme --noconfirm
+yaourt -S i3blocks moka-icon-theme oh-my-zsh-git --noconfirm
 yaourt -S thefuck illum-git playerctl shutter tumbler ffmpegthumbnailer --noconfirm
 yaourt -S spotify staruml arduino eagle dropbox veracrypt --noconfirm
 
