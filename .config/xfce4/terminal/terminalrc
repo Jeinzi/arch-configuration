@@ -28,4 +28,5 @@ FontName=DejaVu Sans Mono 9
 BackgroundImageShading=0,700000
 BackgroundImageStyle=TERMINAL_BACKGROUND_STYLE_CENTERED
 BackgroundMode=TERMINAL_BACKGROUND_IMAGE
+ScrollingOnOutput=FALSE
 
