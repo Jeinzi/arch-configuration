@@ -36,6 +36,9 @@ yaourt -S spotify staruml arduino eagle dropbox veracrypt --noconfirm
 echo numlockx & > ~/.xinitrc
 echo exec i3 >> ~/.xinitrc
 echo eval $(thefuck --alias) >> ~/.bashrc
+echo eval $(thefuck --alias) >> ~/.zshrc
+echo alias imv='imv -b checks' >> ~/.bashrc
+echo alias imv='imv -b checks' >> ~/.zshrc
 chsh -s /bin/zsh ${user}
 
 # Enable service to change screen brightness
