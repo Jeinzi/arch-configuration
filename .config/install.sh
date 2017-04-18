@@ -58,6 +58,10 @@ cd arc-firefox-theme
 ./autogen.sh --prefix=/usr --disable-light --disable-dark
 sudo make install
 
+# Install i3 helper scripts
+cd /etc
+sudo git clone https://github.com/vivien/helpers-for-i3.git
+
 # Add custom i3blocks
 sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 sudo cp ~/.config/i3/custom-blocks/battery-custom /usr/lib/i3blocks/battery
