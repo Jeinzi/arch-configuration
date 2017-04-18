@@ -66,6 +66,9 @@ sudo make install
 cd /etc
 sudo git clone https://github.com/vivien/helpers-for-i3.git
 
+# Battery warning script
+sudo echo "*/1 * * * * ~/.config/i3/i3-battery-warning.sh" >> /var/spool/cron/$user
+
 # Add custom i3blocks
 sudo cp ~/.config/i3/custom-blocks/brightness-custom /usr/lib/i3blocks/brightness
 sudo cp ~/.config/i3/custom-blocks/battery-custom /usr/lib/i3blocks/battery
