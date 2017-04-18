@@ -10,7 +10,7 @@ mkdir -p install
 # Installation
 sudo pacman -S base base-devel --noconfirm
 sudo pacman -S git sshfs --noconfirm
-sudo pacman -S i3 xfce4-terminal compton lxappearance rofi feh --noconfirm
+sudo pacman -S i3 xfce4-terminal compton lxappearance rofi feh numlockx --noconfirm
 sudo pacman -S arc-gtk-theme alsa-utils network-manager-applet gst-libav --noconfirm
 sudo pacman -S firefox thunderbird thunar inkscape gimp texlive-most texmaker mplayer --noconfirm
 
@@ -33,9 +33,10 @@ yaourt -S thefuck illum-git playerctl shutter tumbler ffmpegthumbnailer --noconf
 yaourt -S spotify staruml arduino eagle dropbox veracrypt --noconfirm
 
 # Configuration
-sudo echo exec i3 > ~/.xinitrc
-sudo echo eval $(thefuck --alias) >> ~/.bashrc
-sudo chsh -s /bin/zsh ${user}
+echo numlockx & > ~/.xinitrc
+echo exec i3 >> ~/.xinitrc
+echo eval $(thefuck --alias) >> ~/.bashrc
+chsh -s /bin/zsh ${user}
 
 # Enable service to change screen brightness
 sudo systemctl enable illum.service & sudo systemctl start illum.service
