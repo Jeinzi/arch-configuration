@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval $(thefuck --alias)
 alias imv='imv -b checks'
+alias update='yaourt -Syu --aur --noconfirm'
 
 # ******************************************************************
 # Reboot directly to windows 
