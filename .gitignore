@@ -22,3 +22,4 @@
 !/.config/i3/custom-blocks/*
 !/.ssh
 !/.ssh/config
+!/.zshrc
