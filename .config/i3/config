@@ -11,7 +11,7 @@
 
 # Variables
 set $mod Mod4
-set $bg-color 	         #2f343f
+set $bg-color            #2f343f
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -58,7 +58,7 @@ bindsym $mod+n exec /etc/helpers-for-i3/i3-new-workspace
 bindsym $mod+x exec ~/.config/i3/lock.sh
 
 # Start rofi (program launcher)
-bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -bw 0 -separator-style solid -font "Sans 18" -no-cycle
+bindsym $mod+d exec rofi -show run -config ~/.config/i3/rofi.config
 
 # Change wallpaper
 bindsym $mod+c exec touch ~/.config/i3/next
@@ -170,21 +170,21 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-	bindsym j exec /etc/helpers-for-i3/i3-smart-resize "Left" "1 px or 1 ppt"
-	bindsym k exec /etc/helpers-for-i3/i3-smart-resize "Right" "1 px or 1 ppt"
-	bindsym l exec /etc/helpers-for-i3/i3-smart-resize "Up" "1 px or 1 ppt"
-	bindsym semicolon exec /etc/helpers-for-i3/i3-smart-resize "Down" "1 px or 1 ppt"
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym j exec /etc/helpers-for-i3/i3-smart-resize "Left" "1 px or 1 ppt"
+    bindsym k exec /etc/helpers-for-i3/i3-smart-resize "Right" "1 px or 1 ppt"
+    bindsym l exec /etc/helpers-for-i3/i3-smart-resize "Up" "1 px or 1 ppt"
+    bindsym semicolon exec /etc/helpers-for-i3/i3-smart-resize "Down" "1 px or 1 ppt"
 
-	# Same bindings, but for the arrow keys
-	bindsym Left exec /etc/helpers-for-i3/i3-smart-resize "Left" "1 px or 1 ppt"
-        bindsym Right exec /etc/helpers-for-i3/i3-smart-resize "Right" "1 px or 1 ppt"
-        bindsym Up exec /etc/helpers-for-i3/i3-smart-resize "Up" "1 px or 1 ppt"
-        bindsym Down exec /etc/helpers-for-i3/i3-smart-resize "Down" "1 px or 1 ppt"
+    # Same bindings, but for the arrow keys
+    bindsym Left exec /etc/helpers-for-i3/i3-smart-resize "Left" "1 px or 1 ppt"
+    bindsym Right exec /etc/helpers-for-i3/i3-smart-resize "Right" "1 px or 1 ppt"
+    bindsym Up exec /etc/helpers-for-i3/i3-smart-resize "Up" "1 px or 1 ppt"
+    bindsym Down exec /etc/helpers-for-i3/i3-smart-resize "Down" "1 px or 1 ppt"
 
-        # Back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # Back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -201,15 +201,15 @@ hide_edge_borders both
 
 # Bar
 bar {
-  	status_command i3blocks -c /home/jeinzi/.config/i3/i3blocks.conf
-	colors {
-		background $bg-color
-	    	separator #757575
-		#                  border             background         text
-		focused_workspace  $bg-color          $bg-color          $text-color
-		inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
-	}
+    status_command i3blocks -c /home/jeinzi/.config/i3/i3blocks.conf
+    colors {
+        background $bg-color
+            separator #757575
+        #                  border             background         text
+        focused_workspace  $bg-color          $bg-color          $text-color
+        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+    }
 }
 
 # Start programs
