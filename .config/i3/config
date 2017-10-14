@@ -60,6 +60,9 @@ bindsym $mod+x exec ~/.config/i3/lock.sh
 # Start rofi (program launcher)
 bindsym $mod+d exec rofi -show run -lines 3 -eh 2 -width 100 -padding 450 -bw 0 -separator-style solid -font "Sans 18" -no-cycle
 
+# Change wallpaper
+bindsym $mod+c exec touch ~/.config/i3/next
+
 # Change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
