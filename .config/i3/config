@@ -149,6 +149,10 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 # Bind program to workspace
 assign [class="Firefox"] $workspace2
 
+# Scratchpad
+bindsym $mod+shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -204,3 +208,4 @@ bar {
 exec_always --no-startup-id compton
 exec --no-startup-id ~/.config/i3/wallpaperScript.sh
 exec --no-startup-id dropbox
+exec --no-startup-id nextcloud
