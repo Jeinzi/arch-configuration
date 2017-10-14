@@ -7,11 +7,9 @@ delay=$[delay*60]
 touch $file
 
 while true; do
-    echo "Enter loop."
     # Remove file if it exists.
     fileExists=0
     if [ -f "$file" ]; then
-        echo "File exists."
         fileExists=1
         rm $file
     fi
@@ -22,7 +20,5 @@ while true; do
     fi
 
 	SECONDS=0
-    echo "inotifywait"
     inotifywait -qqt $delay -e create "$(dirname $file)"
-    echo "inotifywait quit"
 done

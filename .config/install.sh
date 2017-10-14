@@ -30,7 +30,7 @@ cd ..
 # AUR installations
 yaourt -S i3blocks moka-icon-theme oh-my-zsh-git --noconfirm
 yaourt -S thefuck illum-git playerctl shutter tumbler ffmpegthumbnailer --noconfirm
-yaourt -S spotify staruml arduino eagle dropbox veracrypt --noconfirm
+yaourt -S spotify staruml arduino eagle dropbox veracrypt ttf-impallari-dosis --noconfirm
 
 # Configuration
 echo numlockx & > ~/.xinitrc
