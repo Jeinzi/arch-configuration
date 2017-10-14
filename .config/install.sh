@@ -12,7 +12,7 @@ sudo pacman -S base base-devel --noconfirm
 sudo pacman -S git sshfs --noconfirm
 sudo pacman -S i3 xfce4-terminal compton lxappearance rofi feh numlockx --noconfirm
 sudo pacman -S arc-gtk-theme alsa-utils network-manager-applet gst-libav --noconfirm
-sudo pacman -S firefox thunderbird thunar inkscape gimp texlive-most texmaker mplayer --noconfirm
+sudo pacman -S firefox thunderbird thunar xarchiver inkscape gimp texlive-most texmaker mplayer --noconfirm
 
 # Install yaourt
 curl -O https://aur.archlinux.org/cgit/aur.git/snapshot/package-query.tar.gz
