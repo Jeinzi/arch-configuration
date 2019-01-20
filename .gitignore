@@ -11,6 +11,7 @@
 !/Bilder/Verschiedenes/Wallpaper/standard.jpg
 !/.config
 !/.config/install.sh
+!/.config/backupList
 !/.config/i3/
 !/.config/i3/*
 !/.config/rofi
@@ -20,8 +21,8 @@
 !/.config/xfce4/terminal/terminalrc
 !/.config/i3/custom-blocks
 !/.config/i3/custom-blocks/*
-!/.ssh
-!/.ssh/config
 !/.zshrc
 !/.bin
 !/.bin/emptyTrash
+!/.doc
+!/.doc/*
