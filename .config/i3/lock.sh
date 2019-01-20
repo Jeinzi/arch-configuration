@@ -1,7 +1,7 @@
 #!/bin/bash
 
 IFS=$'\n'
-icon="$HOME/.config/i3/lock-icon.png"
+icon="$HOME/.config/i3/lock-icon-opaque.png"
 tmpBg='/tmp/screen.png'
 filter=smartblur=5:1
 
@@ -41,7 +41,7 @@ done
 res=${xSum}x${yMax}
 
 # Create image.
-eval ffmpeg -f x11grab -video_size $res -y -i $DISPLAY $iconRef -filter_complex "$filter" -vframes 1 $tmpBg
+eval ffmpeg -f x11grab -video_size $res -y -i $DISPLAY $iconRef -filter_complex "$filter" -vframes 1 $tmpBg -loglevel quiet
 
 i3lock -i "$tmpBg"
 rm $tmpBg
