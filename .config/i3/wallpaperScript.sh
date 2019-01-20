@@ -9,14 +9,8 @@ touch $file
 while true; do
     # Remove file if it exists.
     fileExists=0
-    if [ -f "$file" ]; then
-        fileExists=1
-        rm $file
-    fi
-
-    # Switch wallpaper.
-    if [ $fileExists -eq 1 ] || [ $SECONDS -ge delay ]; then
-       feh --bg-fill --randomize --no-fehbg ~/Bilder/Verschiedenes/Wallpaper/Minimalism
+    if [ -f "$file" ] || [ $SECONDS -ge delay ]; then
+        ~/.config/i3/nextWallpaper.sh
     fi
 
 	SECONDS=0
