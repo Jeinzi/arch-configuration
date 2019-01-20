@@ -43,7 +43,7 @@ Mod+t|File Manager|```bindsym $mod+y exec thunar```
 */14 * * * * cd /home/jeinzi/Pictures/Misc/Wallpaper/lockscreen && betterlockscreen -u .
 ```
 
-![](lockscreen.png)
+![](.doc/lockscreen.png)
 
 ##### Wallpaper
 i3 config file executes
@@ -61,7 +61,7 @@ Cron also switches the wallpaper every ten minutes:
 ##### Bar
 - [Polybar](https://github.com/jaagr/polybar)
 
-![](desktop.png)
+![](.doc/desktop.png)
 
 ##### Battery Warning
 https://github.com/agribu/i3-battery-warning
@@ -73,7 +73,7 @@ https://github.com/agribu/i3-battery-warning
 - Theme: [Materia](https://github.com/nana-4/materia-theme)
 - Icons: [Lüv](https://github.com/Nitrux/luv-icon-theme)
 
-![](thunar.png)
+![](.doc/thunar.png)
 
 
 ##### Disk Space Tracking
