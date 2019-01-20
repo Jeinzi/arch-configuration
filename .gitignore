@@ -23,4 +23,5 @@
 !/.ssh
 !/.ssh/config
 !/.zshrc
-!/emptyTrash
+!/.bin
+!/.bin/emptyTrash

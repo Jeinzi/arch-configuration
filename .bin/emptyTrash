@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import os, shutil
+ntfsMounts = ['Downloads', 'Dokumente', 'Musik', 'Videos', 'Programme', 
+'Bilder', 'VirtualBox VMs', 'Dropbox', 'Software', 'Spiele']
+otherTrashs = ['~/.local/share/Trash']
+trash_name = '.Trash-1000'
+
+for folder in ntfsMounts:
+    folder = os.path.expanduser("~/" + folder)
+    path = os.path.join(folder, trash_name)
+    try:
+        if os.path.isfile(path):
+            print('Deleting file: ' + str(path) + '.')
+            os.unlink(path)
+        elif os.path.isdir(path):
+            print('Deleting dir: ' + str(path) + '.')
+            shutil.rmtree(path)
+    except Exception as e:
+        print(e)
+
+for folder in otherTrashs:
+    path = os.path.expanduser(folder)
+    try:
+        if os.path.isdir(path):
+            print('Deleting dir: ' + str(path) + '.')
+            shutil.rmtree(path)
+    except Exception as e:
+        print(e)
