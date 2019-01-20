@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/jeinzi/.oh-my-zsh
@@ -87,18 +87,45 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-eval $(thefuck --alias)
-alias imv='imv -b checks'
-alias update='yaourt -Syu --aur --noconfirm'
 
-# ******************************************************************
-# Reboot directly to windows 
-#   Inspired by 
-# http://askubuntu.com/questions/18170/how-to-reboot-into-windows-from-ubuntu and
-# https://unix.stackexchange.com/questions/43196/how-can-i-tell-grub-i-want-to-reboot-into-windows-before-i-reboot/112284
-# ******************************************************************
-function boot-win {
-    WINDOWS_TITLE=`sudo grep -i 'windows' /boot/grub/grub.cfg|cut -d"'" -f2`
-    sudo grub-reboot "$WINDOWS_TITLE"
-    sudo reboot
+eval $(thefuck --alias)
+alias update='yaourt -Syu --aur --noconfirm'
+alias suspend='systemctl suspend'
+alias up='cd ..'
+alias bootwin='zsh ~/.config/bootwin.sh'
+alias pdf='qpdfview'
+
+# Copy stdin to the clipboard.
+alias c='tr -d "\n" | xsel -ib'
+
+# Print battery status.
+alias b='acpi -b'
+
+# Create a directory and cd into it.
+mkdirc () { mkdir "$@" && cd "$@[-1]" }
+
+# Copy an optical disc via dd.
+copy-optical () {
+    if [ -z "$1" ]; then
+        echo "Output filename missing."
+        return 1
+    fi
+    if [ -f $1 ]; then
+        echo "File already exists."
+        return 1
+    fi
+    isosize -x /dev/sr0 | sed -n -E "s/sector count: ([0-9]*), sector size: ([0-9]*)/dd if=\/dev\/sr0 of=\"$1\" bs=\2 count=\1 status=progress/p" | bash -
+}
+
+# Print the duration of a media file using ffprobe.
+dur () {
+    if [ -z "$1" ]; then
+        echo "Filename missing."
+        return 1
+    fi
+    if [ ! -f $1 ]; then
+        echo "File does not exist."
+        return 1
+    fi
+    ffprobe "$1" 2>&1 >/dev/null | grep -oP "Duration: .*?," | tr -d ","
 }
