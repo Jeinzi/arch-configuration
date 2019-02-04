@@ -23,27 +23,16 @@ I am dual booting Windows 10 and Arch. Following are all the infos on how I cust
 ## Desktop
 - [i3-wm](https://i3wm.org/) + [helpers-for-i3](https://github.com/vivien/helpers-for-i3)
 
-##### Custom Shortcuts
-Shortcut|Summary|i3-config
----|---|---
-Mod+b|Browser|```bindsym $mod+b exec google-chrome-stable```
-Mod+Shift+b|Incognito browser|```bindsym $mod+Shift+b exec google-chrome-stable --incognito```
-Mod+c|Next wallpaper|```bindsym $mod+c exec touch ~/.config/i3/next```
-Mod+x|Lock screen|```bindsym $mod+x exec betterlockscreen -l```
-Mod+y|Lock and suspend|```bindsym $mod+y exec betterlockscreen -s```
-Print|Screenshot|```bindsym Print exec shutter -s```
-Mod+t|File Manager|```bindsym $mod+y exec thunar```
+##### Bar
+- [Polybar](https://github.com/jaagr/polybar)
 
-##### Lockscreen
-- [better-lockscreen](https://github.com/pavanjadhaw/betterlockscreen)
-- Collection of suitable wallpapers in ```~/Pictures/Misc/Wallpaper/lockscreen```
-- Cron changes lockscreen wallpaper every 14 minutes. That's because there are already other tasks schedules for every 15th minute.
+![Image of my desktop](https://dl.dropboxusercontent.com/s/jvdf8zcsbl1w58y/desktop.png)
 
+##### Battery Warning
+https://github.com/agribu/i3-battery-warning
 ```bash
-*/14 * * * * cd /home/jeinzi/Pictures/Misc/Wallpaper/lockscreen && betterlockscreen -u .
+*/1 * * * * ~/.config/i3/i3-battery-warning.sh
 ```
-
-![Image of my lockscreen](https://dl.dropboxusercontent.com/s/dc7kc26puc2ffpv/thunar.png)
 
 ##### Wallpaper
 i3 config file executes
@@ -58,16 +47,16 @@ Cron also switches the wallpaper every ten minutes:
 */10 * * * * ~/.config/i3/nextWallpaper.sh
 ```
 
-##### Bar
-- [Polybar](https://github.com/jaagr/polybar)
-
-![Image of my desktop](https://dl.dropboxusercontent.com/s/jvdf8zcsbl1w58y/desktop.png)
-
-##### Battery Warning
-https://github.com/agribu/i3-battery-warning
-```bash
-*/1 * * * * ~/.config/i3/i3-battery-warning.sh
-```
+##### Custom Shortcuts
+Shortcut|Summary|i3-config
+---|---|---
+Mod+b|Browser|```bindsym $mod+b exec google-chrome-stable```
+Mod+Shift+b|Incognito browser|```bindsym $mod+Shift+b exec google-chrome-stable --incognito```
+Mod+c|Next wallpaper|```bindsym $mod+c exec touch ~/.config/i3/next```
+Mod+x|Lock screen|```bindsym $mod+x exec betterlockscreen -l```
+Mod+y|Lock and suspend|```bindsym $mod+y exec betterlockscreen -s```
+Print|Screenshot|```bindsym Print exec shutter -s```
+Mod+t|File Manager|```bindsym $mod+y exec thunar```
 
 ##### Theme & Icons
 - Theme: [Materia](https://github.com/nana-4/materia-theme)
@@ -75,10 +64,19 @@ https://github.com/agribu/i3-battery-warning
 
 ![Image of thunar with icon theme](https://dl.dropboxusercontent.com/s/dc7kc26puc2ffpv/thunar.png)
 
+##### Lockscreen
+- [better-lockscreen](https://github.com/pavanjadhaw/betterlockscreen)
+- Collection of suitable wallpapers in ```~/Pictures/Misc/Wallpaper/lockscreen```
+- Cron changes lockscreen wallpaper every 14 minutes. That's because there are already other tasks schedules for every 15th minute.
+
+```bash
+*/14 * * * * cd /home/jeinzi/Pictures/Misc/Wallpaper/lockscreen && betterlockscreen -u .
+```
+
+![Image of my lockscreen](https://dl.dropboxusercontent.com/s/lcqj3xjjrrbb7du/lockscreen.png)
 
 ##### Disk Space Tracking
-
-
+I track and visualize the used space on my hard drive with a custom python script cron runs every 30 minutes - I'll upload it eventually.
 
 ##### Browser
 - google-chrome-stable
