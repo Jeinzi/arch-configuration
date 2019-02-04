@@ -94,7 +94,7 @@ alias suspend='systemctl suspend'
 alias up='cd ..'
 alias bootwin='zsh ~/.config/bootwin.sh'
 alias pdf='qpdfview'
-source .vpnalias
+source ~/.vpnalias
 
 # Copy stdin to the clipboard.
 alias c='tr -d "\n" | xsel -ib'
