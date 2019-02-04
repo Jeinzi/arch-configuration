@@ -222,4 +222,4 @@ exec --no-startup-id ~/.config/i3/wallpaperScript.sh
 exec --no-startup-id dropbox
 exec --no-startup-id nm-applet
 exec --no-startup-id ktorrent
-exec_always --no-startup-id compton
+exec_always --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
