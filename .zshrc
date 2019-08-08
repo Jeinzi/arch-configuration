@@ -88,8 +88,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval $(thefuck --alias)
-alias update='yaourt -Syu --aur --noconfirm'
 alias suspend='systemctl suspend'
 alias up='cd ..'
 alias bootwin='zsh ~/.config/bootwin.sh'
