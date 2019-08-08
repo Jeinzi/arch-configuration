@@ -50,13 +50,14 @@ Cron also switches the wallpaper every ten minutes:
 ##### Custom Shortcuts
 Shortcut|Summary|i3-config
 ---|---|---
-Mod+b|Browser|```bindsym $mod+b exec google-chrome-stable```
-Mod+Shift+b|Incognito browser|```bindsym $mod+Shift+b exec google-chrome-stable --incognito```
+Mod+b|Browser|```bindsym $mod+b exec firefox```
+Mod+Shift+b|Incognito browser|```bindsym $mod+Shift+b exec firefox --private-window```
 Mod+c|Next wallpaper|```bindsym $mod+c exec touch ~/.config/i3/next```
 Mod+x|Lock screen|```bindsym $mod+x exec betterlockscreen -l```
 Mod+y|Lock and suspend|```bindsym $mod+y exec betterlockscreen -s```
 Print|Screenshot|```bindsym Print exec shutter -s```
 Mod+t|File Manager|```bindsym $mod+y exec thunar```
+Mod+n|New Desktop|```bindsym $mod+n exec i3-new-workspace```
 
 ##### Theme & Icons
 - Theme: [Materia](https://github.com/nana-4/materia-theme)
@@ -67,11 +68,7 @@ Mod+t|File Manager|```bindsym $mod+y exec thunar```
 ##### Lockscreen
 - [better-lockscreen](https://github.com/pavanjadhaw/betterlockscreen)
 - Collection of suitable wallpapers in ```~/Pictures/Misc/Wallpaper/lockscreen```
-- Cron changes lockscreen wallpaper every 14 minutes. That's because there are already other tasks schedules for every 15th minute.
-
-```bash
-*/14 * * * * cd /home/jeinzi/Pictures/Misc/Wallpaper/lockscreen && betterlockscreen -u .
-```
+- I'd like to have a cron job change the lockscreen every so often, but this currently fails.
 
 ![Image of my lockscreen](https://dl.dropboxusercontent.com/s/lcqj3xjjrrbb7du/lockscreen.png)
 
@@ -79,87 +76,85 @@ Mod+t|File Manager|```bindsym $mod+y exec thunar```
 I track and visualize the used space on my hard drive with a custom python script cron runs every 30 minutes - I'll upload it eventually.
 
 ##### Browser
-- google-chrome-stable
+- firefox
 
 Addon|Description
 ---|---
 uMatrix|Block cookies, scripts, XSS etc. from unknown domains
 Vimium|Cool vim-style shortcuts
-Vanilla Cookie Manager|Delete all but whitelisted cookies on startup
-I don't care about cookies|Don't show cookie warnings when first visiting websites. Needed for sanity when deleting nearly all cookies with Vanilla.  
-Real-Time Tab Sync|Sync currently open tabs between OSs and machines. Uses chromes sync feature and its encryption.
-Don't add custom search engines|Prevent websites from adding custom search shortcuts.
+Cookiebro|Delete all but whitelisted cookies regularly
+I don't care about cookies|Don't show cookie warnings when first visiting websites. Needed for sanity when deleting nearly all cookies with Vanilla.
 
 ###### Custom Search Engines
-Name|Keyword
----|---
-Airbnb|bnb
-Amazon|a
-Arch User Repository|aur
-csd-electronics.de|csd
-DuckDuckGo|duck
-Ebay|e
-Ebay Kleinanzeigen|ek
-English Wikipedia|we
-Facebook|f
-Github|g
-Google Images|b
-Google Maps|m
-Life in the Woods Wiki|litw
-Minecraft Wiki|mine
-SoundCloud|s
-Stack Overflow|so
-Google Translator|t
-Twitter|tw
-Wikipedia|w
-WolframAlpha|wa
-YouTube|y
+I didn't find a way to add custom search engines to Firefox yet - but I used the following in Chrome:
 
-###### Vanilla Whitelist
-- *.amazon.de
-- amzn.to
-- app.n26.com
-- dropbox.com
-- *.ebay.com
-- *.ebay.de
-- *.github.com
-- *.google.com
-- *.google.de
-- *.mathworks.com
-- *.soundcloud.com
-- *.stackoverflow.com
-- *.thingiverse.com
-- *.todoist.com
-- *.twitch.tv
-- web.threema.ch
-- web.whatsapp.com
-- wikipedia.org
-- www.coursera.org
-- www.ebay-kleinanzeigen.de
-- www.facebook.com
-- www.mathworks.com
-- *.youtube.com
+**Name**|**Keyword**|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|**Name**|**Keyword**
+---|---|---|---|---
+Github|g||Stack Overflow|so
+English Wikipedia|we||German Wikipedia|w
+DuckDuckGo|duck||WolframAlpha|wa
+Arch User Repository|aur||csd-electronics.de|csd
+Google Images|b||Google Maps|m
+Google Translator|t||YouTube|y
+Ebay|e||Ebay Kleinanzeigen|ek
+Minecraft Wiki|mine||Life in the Woods Wiki|litw
+Amazon|a||Airbnb|bnb
+Facebook|f||Twitter|tw
+SoundCloud|s
+
+
+###### Cookiebro Whitelist
+*Needs updating*
 
 
 ### Backups
-###### Config File Example
-- First column: source
-- Second column: destination relative to backup directory
+I backup my data to an external hard drive, which I occasionally mirror onto a hard drive I store somewhere remote. Those two hard drives also store data I don't need to constantly keep on my main machine.
 
+The backups are done by [rsnapshot](https://wiki.archlinux.org/index.php/Rsnapshot), which is a wonderful utility based on rsync. On each new backup a hardlinked copy of the previous backup is created and only modified files are replaced. That allows for an entire history of backups to exist with only minor overhead.
+
+#### Config
 ```bash
-"/home/jeinzi/TIPP10" "TIPP10"
-"/mnt/windows/Users/Jeinzi/AppData/Roaming/.minecraft/saves" "minecraft/saves"
-"/mnt/windows/Users/Jeinzi/Documents" "Dokumente-Windows"
+config_version  1.2
+snapshot_root   /media/veracrypt1/Backups/
+no_create_root  1
+
+# Some paths.
+cmd_cp      /usr/bin/cp
+cmd_rm      /usr/bin/rm
+cmd_rsync   /usr/bin/rsync
+cmd_logger  /usr/bin/logger
+cmd_du      /usr/bin/du
+
+# Script saving pacman database, package list and time of backup.
+cmd_postexec    /home/jeinzi/.bin/backup.post.sh
+# Save four backups in history.
+retain  laptop  4
+
+verbose     2
+loglevel    3
+lockfile    /home/jeinzi/rsnapshot.pid
+du_args     -csh
+
+
+# Home
+backup  /home/jeinzi/.TIPP10/./         TIPP10
+backup  /home/jeinzi/Downloads/./       Downloads
+backup  /home/jeinzi/Software/./        Software
+
+# Minecraft
+backup  /home/jeinzi/.litwrl/./             litwrl
+backup  /home/jeinzi/.minecraft/saves/./    minecraft/saves
+
+# EMail
+backup  /home/jeinzi/.thunderbird/y098igl3.default/ImapMail/imap.gmx-1.net/./       mail/address@gmx.de
+
+# Backup important config files.
+backup  /etc/   Config  include=/etc/rsnapshot.conf,exclude=/etc/*
 ```
 
-###### Command
+#### Mirror to offsite backup
+It is important to preserve the hardlinks set by rsnapshot:
+
 ```bash
-volume=veracrypt2
-cat /home/jeinzi/.config/backupList | sed -En "s/^\"([^\"]*)\"[[:blank:]]\"([^\"]*)\"/sudo rsync -ah --progress --delete '\1' '\/media\/${volume}\/Backups\/Laptop\/\2'/p" | bash -
-cd "/media/${volume}/Backups/Laptop";
-rm Last\ modified*
-rm pacman_database_*
-pacman -Qqe > packagelist
-tar -cjf "/media/${volume}/Backups/Laptop/pacman_database_$(date +'%Y-%m-%d %H:%M').tar.bz2" /var/lib/pacman/local
-touch "$(date +"Last modified %Y-%m-%d %H:%M")"
+rsync --info=progress2 --delete -avH veracrypt1/ veracrypt2/
 ```
