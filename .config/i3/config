@@ -51,14 +51,14 @@ bindsym XF86AudioPause exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+t exec thunar
-bindsym $mod+b exec google-chrome-stable
-bindsym $mod+Shift+b exec google-chrome-stable --incognito
+bindsym $mod+b exec firefox
+bindsym $mod+Shift+b exec firefox --private-window
 bindsym Print exec shutter -s
-bindsym $mod+n exec /etc/helpers-for-i3/i3-new-workspace
+bindsym $mod+n exec i3-new-workspace
 
 # Lock screen
 bindsym $mod+x exec betterlockscreen -l
-bindsym $mod+y exec betterlockscreen -l & sleep 0.3 && systemctl suspend
+bindsym $mod+y exec betterlockscreen -s
 
 # Start rofi (program launcher)
 bindsym $mod+d exec rofi -show run -config ~/.config/i3/rofi.config
@@ -125,8 +125,8 @@ bindsym $mod+p focus parent
 bindsym $mod+a focus child
 
 # Define workspaces
-set $workspace1 "1: Terminal"
-set $workspace2 "2: Browser"
+set $workspace1 1
+set $workspace2 2
 set $workspace3 3
 set $workspace4 4
 set $workspace5 5
@@ -175,29 +175,28 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
     # 1 pixel steps for jkl;
-    bindsym j exec /etc/helpers-for-i3/i3-smart-resize "Left" "1 px or 1 ppt"
-    bindsym k exec /etc/helpers-for-i3/i3-smart-resize "Right" "1 px or 1 ppt"
-    bindsym l exec /etc/helpers-for-i3/i3-smart-resize "Up" "1 px or 1 ppt"
-    bindsym semicolon exec /etc/helpers-for-i3/i3-smart-resize "Down" "1 px or 1 ppt"
+    bindsym j exec i3-smart-resize "Left" "1 px or 1 ppt"
+    bindsym k exec i3-smart-resize "Right" "1 px or 1 ppt"
+    bindsym l exec i3-smart-resize "Up" "1 px or 1 ppt"
+    bindsym semicolon exec i3-smart-resize "Down" "1 px or 1 ppt"
 
-    bindsym Shift+j exec /etc/helpers-for-i3/i3-smart-resize "Right" "-1 px or -1 ppt"
-    bindsym Shift+k exec /etc/helpers-for-i3/i3-smart-resize "Left" "-1 px or -1 ppt"
-    bindsym Shift+l exec /etc/helpers-for-i3/i3-smart-resize "Down" "-1 px or -1 ppt"
-    bindsym Shift+semicolon exec /etc/helpers-for-i3/i3-smart-resize "Up" "-1 px or -1 ppt"
+    bindsym Shift+j exec i3-smart-resize "Right" "-1 px or -1 ppt"
+    bindsym Shift+k exec i3-smart-resize "Left" "-1 px or -1 ppt"
+    bindsym Shift+l exec i3-smart-resize "Down" "-1 px or -1 ppt"
+    bindsym Shift+semicolon exec i3-smart-resize "Up" "-1 px or -1 ppt"
 
     # Same bindings, but for the arrow keys with a step with of 10 pixels
-    bindsym Left exec /etc/helpers-for-i3/i3-smart-resize "Left" "10 px or 10 ppt"
-    bindsym Right exec /etc/helpers-for-i3/i3-smart-resize "Right" "10 px or 10 ppt"
-    bindsym Up exec /etc/helpers-for-i3/i3-smart-resize "Up" "10 px or 10 ppt"
-    bindsym Down exec /etc/helpers-for-i3/i3-smart-resize "Down" "10 px or 10 ppt"
+    bindsym Left exec i3-smart-resize "Left" "10 px or 10 ppt"
+    bindsym Right exec i3-smart-resize "Right" "10 px or 10 ppt"
+    bindsym Up exec i3-smart-resize "Up" "10 px or 10 ppt"
+    bindsym Down exec i3-smart-resize "Down" "10 px or 10 ppt"
 
-    bindsym Shift+Left exec /etc/helpers-for-i3/i3-smart-resize "Right" "-10 px or -10 ppt"
-    bindsym Shift+Right exec /etc/helpers-for-i3/i3-smart-resize "Left" "-10 px or -10 ppt"
-    bindsym Shift+Up exec /etc/helpers-for-i3/i3-smart-resize "Down" "-10 px or -10 ppt"
-    bindsym Shift+Down exec /etc/helpers-for-i3/i3-smart-resize "Up" "-10 px or -10 ppt"
+    bindsym Shift+Left exec i3-smart-resize "Right" "-10 px or -10 ppt"
+    bindsym Shift+Right exec i3-smart-resize "Left" "-10 px or -10 ppt"
+    bindsym Shift+Up exec i3-smart-resize "Down" "-10 px or -10 ppt"
+    bindsym Shift+Down exec i3-smart-resize "Up" "-10 px or -10 ppt"
 
     # Back to normal: Enter or Escape
-    bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
@@ -221,5 +220,4 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id ~/.config/i3/wallpaperScript.sh
 exec --no-startup-id dropbox
 exec --no-startup-id nm-applet
-exec --no-startup-id ktorrent
-exec_always --no-startup-id compton --backend glx --paint-on-overlay --vsync opengl-swc
+exec --no-startup-id compton
