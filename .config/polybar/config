@@ -41,12 +41,12 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = pango:pixelsize=9;2
+font-0 = "Deja Vu Sans:pixelsize=10;2"
 font-1 = fontawesome:fontformat=truetype:size=8;1
-font-2 = "Wuncon Siji:pixelsize=10;1"
+font-2 = "Siji:pixelsize=10;1"
 
-modules-left = bspwm i3
-modules-right = volume cpu memory filesystem battery wlan date
+modules-left = i3
+modules-right = pulseaudio cpu memory filesystem battery wlan date
 
 tray-position = right
 tray-padding = 2
@@ -55,13 +55,15 @@ tray-padding = 2
 
 [bar/internal-monitor]
 inherit=bar/jeinzi
-font-0 = pango:pixelsize=9;2
+font-0 = "Deja Vu Sans:pixelsize=9;2"
 height = 16
 
 
 
 [bar/hdmi-monitor]
 inherit=bar/jeinzi
+
+
 
 
 
@@ -74,6 +76,8 @@ label-mounted = %{F#c5ab92}%{F-} %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-green}
 prefix-foreground = ${colors.foreground-green}
+
+
 
 
 
@@ -95,6 +99,8 @@ label-urgent-padding = 2
 label-empty = %index%
 label-empty-foreground = ${colors.foreground-green}
 label-empty-padding = 2
+
+
 
 
 
@@ -132,12 +138,16 @@ label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 
 
+
+
 [module/cpu]
 type = internal/cpu
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-red}
 label = %percentage%%
+
+
 
 
 
@@ -150,6 +160,8 @@ label = %gb_free%
 
 
 
+
+
 [module/wlan]
 type = internal/network
 interface = wlo1
@@ -158,12 +170,14 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %local_ip%
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-green}
+
+
 
 
 
@@ -181,38 +195,38 @@ label = %date%%time%
 
 
 
-[module/volume]
-type = internal/volume
+
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+interval = 5
 
 format-volume = <ramp-volume> <label-volume>
+
 label-volume = %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.foreground}
 
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-red}
-label-muted = MUTE
 
+label-muted =  MUTE
+label-muted-foreground = ${colors.foreground-red}
+format-muted = <label-muted>
+
+; Only applies if <ramp-volume> is used
+ramp-volume-foreground = ${colors.foreground-green}
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
-ramp-volume-foreground = ${colors.foreground-green}
 
-bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
-bar-volume-indicator = |
-bar-volume-indicator-font = 2
-bar-volume-fill = ─
-bar-volume-fill-font = 2
-bar-volume-empty = ─
-bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-green}
+
 
 
 
@@ -247,8 +261,12 @@ animation-charging-framerate = 1000
 
 
 
+
+
 [settings]
 screenchange-reload = true
+
+
 
 
 
