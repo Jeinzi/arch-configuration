@@ -1,0 +1,10 @@
+
+# -------------------------------------------------------------------------- 
+# Single cookie settings:
+# -------------------------------------------------------------------------- 
+*.stackexchange.com/acctsoundcloud.com/oauth_tokengithub.com/user_sessionjeinzi.me/PHPSESSID*.todoist.com/todoistd*.stackoverflow.com/acctaur.archlinux.org/AURSID*.mouser.de/ASP.NET_SessionId*.duolingo.com/jwt_token*.www.dropbox.com/lid
+*.www.dropbox.com/jar*.dropbox.com/t
+*.dropbox.com/blid
+*.dropbox.com/bjarhinterlandforums.com/ips4_IPSSessionFront*.youtube.com/SID
+*.youtube.com/SSID
+*.youtube.com/HSID

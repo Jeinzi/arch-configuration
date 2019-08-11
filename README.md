@@ -104,7 +104,7 @@ SoundCloud|s
 
 
 ###### Cookiebro Whitelist
-*Needs updating*
+I try to whitelist only the individual cookies that are absolutely necessary to keep me signed into a website. See [here](.doc/cookiebro-whitelist.txt) for the whitelist.
 
 
 ### Backups
