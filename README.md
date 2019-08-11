@@ -80,10 +80,10 @@ I track and visualize the used space on my hard drive with a custom python scrip
 
 Addon|Description
 ---|---
-uMatrix|Block cookies, scripts, XSS etc. from unknown domains
-Vimium|Cool vim-style shortcuts
-Cookiebro|Delete all but whitelisted cookies regularly
-I don't care about cookies|Don't show cookie warnings when first visiting websites. Needed for sanity when deleting nearly all cookies with Vanilla.
+[uMatrix](https://addons.mozilla.org/en-US/firefox/addon/umatrix)|Block cookies, scripts, XSS etc. from unknown domains
+[Vimium](https://addons.mozilla.org/en-US/firefox/addon/vimium-ff)|Cool vim-style shortcuts
+[Cookiebro](https://addons.mozilla.org/en-US/firefox/addon/cookiebro)|Delete all but whitelisted cookies regularly
+[I don't care about cookies](https://addons.mozilla.org/en-US/firefox/addon/i-dont-care-about-cookies)|Don't show cookie warnings when first visiting websites. Needed for sanity when deleting nearly all cookies with Vanilla.
 
 ###### Custom Search Engines
 I didn't find a way to add custom search engines to Firefox yet - but I used the following in Chrome:
