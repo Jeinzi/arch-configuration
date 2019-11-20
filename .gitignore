@@ -25,7 +25,10 @@
 !/.config/polybar/config
 !/.config/polybar/launch.sh
 !/.zshrc
-!/.bin
+!/.bin/
 !/.bin/emptyTrash
+!/.bin/bootwin.sh
+!/.bin/install.sh
+!/.bin/backup.post.sh
 !/.doc
 !/.doc/*

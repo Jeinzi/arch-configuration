@@ -90,7 +90,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias suspend='systemctl suspend'
 alias up='cd ..'
-alias bootwin='zsh ~/.config/bootwin.sh'
+alias bootwin='zsh ~/.bin/bootwin.sh'
 alias pdf='qpdfview'
 source ~/.vpnalias
 
