@@ -220,4 +220,4 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id ~/.config/i3/wallpaperScript.sh
 exec --no-startup-id dropbox
 exec --no-startup-id nm-applet
-exec --no-startup-id compton
+exec --no-startup-id picom
